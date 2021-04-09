@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            background-color:#efeeee;
+        }
+        .container{
+            width: 700px;
+            height: 600px;
+            display:flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .container .box{
+            display:flex;
+            height: 230px;
+            width: 230px;
+            margin: 20px;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+        }
+        .container .box .img{
+            width: 200px;
+            height: 200px;
+            box-shadow:18px 18px 30px rgba(0,0,0,0.1),
+            -18px -18px 30px rgba(255,255,255,1);
+            border-radius: 20px;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            background-color: #efeeee;
+            transition:box-shadow.2s ease-in-out;
+        }
+        .container .box .img img{
+            width: 150px;
+            transition:box-shadow.2s ease-in-out;
+        }
+        .contanier .box p{
+            color:slategray
+        }
+        .container .box .img:hover{
+            box-shadow:0px 0px 0px rgba(0,0,0,0.1),
+            00px 0px 0px rgba(255,255,255,1),
+            inset 18px 18px 30px rgba(0,0,0,0.1),
+            inset -18px -18px 30px rgba(255,255,255,1);
+            transition: box-shadow .2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="img">
+                <img src="./卫星发射台.SVG.png" >
+                <p>卫星发射台</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img">
+                <img src="./天体望远镜.SVG.png" >
+                天体望远镜
+            </div>
+        </div>
+        <div class="box">
+            <div class="img">
+                <img src="./宇航员.SVG.png" >
+                宇航员
+            </div>
+        </div>
+        <div class="box">
+            <div class="img">
+                <img src="./登月.SVG.png" >
+                登月
+            </div>
+        </div>
+    </div>
+</body>
+</html>

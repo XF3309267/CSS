@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两列自适应布局</title>
+    <!-- 
+             两列自适应布局
+        一列由内容撑开         一列 铺满剩余的宽度
+     -->
+
+    <style>
+        .parent{ overflow: hidden;}
+
+        .left_1{
+            float: left;
+            width: 200px;
+            padding-bottom:10000px;
+            margin-bottom: -10000px;
+            background: red;
+            word-wrap: break-word;
+            overflow: hidden;
+            opacity: 0.5;
+        }
+        .right_1{
+            margin-left: 200px;
+            background-color: orange;
+            padding-bottom:10000px;
+            margin-bottom: -10000px;
+        }
+
+    </style>
+
+</head>
+<body>  
+    <!-- 
+        侧边栏：
+            float: left;   或者  float: right;
+            width:  x ;  (即 是定宽的)
+            word-wrap: break-word;   当一行容不下文字时，会自动换行 以保证单词的完整体现
+        这里不需要（ word-break:break-all;  当一行容不下那么多文字时，自动换行，不管是否 截断文字   ）
+
+        主内容栏：  
+            (
+                应该放在 浮动盒子 后面，保证 浮动盒子能够 与 主内容的盒子 同一行
+                若 非浮动内容 在 html  文档中，放在 浮动盒子 前面，会将 浮动盒子挤到下一行
+                因为  主内容盒子，在没有设置   宽度的情况下，width: 100%
+            )
+            margin-left: x ;(上述 浮动盒子的 宽度)
+
+        额外：  因为我 .left  和  .right  设置了:  padding-bottom: 10000px; margin-bottom: -10000px;
+                .parent: overflow: hidden;
+                实现了  left  和  right 等高的效果
+     <div class="parent">
+        <div class="left_1 minHeight">
+            <ul>
+                <li>1</li>
+                <li>Lorem, ipsum.</li>
+                <li>Cum, ullam.</li>
+                <li>Quae, enim.</li>
+                <li>Cum, odit?</li>
+            </ul>
+        </div>
+        <div class="right_1 minHeight"> rightrightrighgggggggggggggggggggggggggggggggtrightright htrightrighgggggggggggggggggggggggggggggggtrightrightrightrighgggggggggggggggggggggggggggggggtrightrighht</div>
+    </div>
+</body>
+</html>

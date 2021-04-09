@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pre_explain_content{
+            font-size: 1.7rem;
+            line-height: 1.5rem;
+            font-weight: 900;
+            color: black;
+        }
+        .container{
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .box{
+            background: rgb(47, 201, 221);
+            margin: 50px 10px;
+        }
+        .h_prewrap{
+            white-space: pre-wrap;
+        }
+        .parent_1{
+            text-align: center;
+        }
+        .parent_2{
+            position: relative;
+        }
+        .child{
+            display:table;
+            margin:0 auto;
+            height: 20px;
+            background: rgb(64, 207, 78);
+        }
+        .child_1{
+            display: inline-block;
+        }
+        .child_2{
+            position: absolute;
+            left: 50%;
+            transform:translateX(-50%)
+        }
+        .color_blue{
+            color: blue;
+        }
+        .color_red{
+            color: red;
+        }
+        .color_orange{
+            color: orange;
+        }
+        .color_green{
+            color: rgb(23, 175, 23);
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 
+        display: table
+        解释：      
+                display: table; 
+                不必追究 他是 块级元素 还是 行内块级元素  还是  行内元素
+                它是跟  inline block inline-block 同等级的属性
+
+        display: table
+        效果： 
+                独占一行，宽高 由内容决定
+     -->
+    <div class="container">
+        <!-- <pre class="pre_Explain_content">
+            水平居中： 分两种
+            1. 子元素  有无 固定宽度
+            2. 子元素  块级元素 或者 行内元素
+        </pre> -->
+
+        <h2>水平居中 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;   (一)  子元素 没有 指定了宽度</h2>
+
+
+        <h3> 1.子元素无固定宽度；&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  不要求父元素 &nbsp;&nbsp;&nbsp; .child >> display: table;&nbsp; margin: 0 auto; </h3>
+        <h3 class="h_prewrap color_green"> 拓展：table 类似于 inline-block 属性，但是 与 inline-block 不属于同一种东西，不会同一行 </h3>
+        <h3 class="h_prewrap color_orange"> 适用：子元素在  父级元素中 独占一行 </h3>
+        <h3 class="h_prewrap color_blue"> 优点：只需对自身元素设置， </h3>
+        <h3 class="h_prewrap color_red"> 缺点：对 IE6 7 不兼容。     且实际上 子元素还是要设置  一定的宽度  或者 不设置宽度（由内容将 宽度撑大） </h3>
+        <div class="box">
+           <div class="child">
+                <!-- 子元素位置：&nbsp;&nbsp;&nbsp;div.child -->
+            </div>
+        </div>
+
+        <h3> 2. 子元素无固定宽度；&nbsp;&nbsp;&nbsp;.parent >> text-align:center;&nbsp;&nbsp;&nbsp; .child >> display: inline-block;&nbsp;</h3>
+        <h3 class="h_prewrap color_orange"> 适用：父元素只有 这么一个子元素 </h3>
+        <h3 class="color_blue"> 优点：兼容性好 </h3>
+        <h3 class="color_red"> 缺点：同时设置 父元素 子元素，且要求 子元素是 inline 或者 inline-block 元素 </h3>
+        <div class="box">
+           <div class="parent_1">
+               <div class="child_1">
+                    子元素位置：&nbsp;&nbsp;&nbsp; 要求&nbsp;&nbsp;&nbsp;子元素是&nbsp;&nbsp;&nbsp;行内元素 或者&nbsp;&nbsp;&nbsp;行内块元素
+               </div>
+            </div>
+        </div>
+
+        <h3> 3. 子元素无固定宽度；&nbsp;&nbsp;&nbsp;.parent >>position: relative; &nbsp;&nbsp;&nbsp; .child >> position: absolute ;&nbsp;&nbsp;left: 50%;&nbsp;&nbsp; transform: translateX(-50%)</h3>
+        <h3 class="h_prewrap color_orange"> 适用：不考虑IE兼容；知道 子元素高度的情况下，父元素 设置 margin 为 子元素 拉开距离，提供位置给 子元素</h3>
+        <h3 class="color_blue"> 优点：兼容性好 </h3>
+        <h3 class="color_red"> 缺点：同时设置 父元素 子元素。 &nbsp;&nbsp;&nbsp; 因为设置了 子元素 absolute 属性值,无法撑开父级元素（relative）（可以审阅元素 父元素没有被撑开） </h3>
+        <h3 class="color_red"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  若一切元素都建立在 child 元素 上还行。若还要建立 其他 非child 子元素，不太行。且只兼容 IE9 以上</h3>
+        <div class="box" style="margin-bottom: 100px;">
+           <div class="parent_2" style="background-color: red;">
+               <div class="child_2">
+                    子元素： absloute  left: 50%;   
+               </div>
+            </div>
+        </div>
+        <h3 class="h_prewrap"> 4. 使用 flex 布局，父元素： display: flex;     justify-content: center;  </h3>
+        <h3 class="h_prewrap color_blue">      优点：简单编写 且 易理解 </h3>
+        <h3 class="h_prewrap color_red">       缺点：兼容性不好</h3>
+<!-- ------------------------------------------------------------------------------------------ -->
+
+        <h2>水平居中 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;   (二)  子元素  指定了宽度</h2>
+
+        <h3 class="h_prewrap"> 1. 子元素: margin: 0 auto;  </h3>
+        <h3 class="h_prewrap"> 2. .parent >>position: relative; .child >> position: absolute ;left: 50%;&nbsp;&nbsp; margin-left：-（ 子元素宽度 / 2 ）  </h3>
+        <h3 class="h_prewrap color_blue">      优点：兼容性好 </h3>
+        <h3 class="h_prewrap color_red">       缺点：必须知道 子元素宽度。 设置 absolute 不能撑开 父级元素 (relative)</h3>
+   <!---------------------------------------------------------------------------------------------  -->
+
+        <h2  class="h_prewrap">  垂直居中  （ 不要尝试用 margin: auto 0px;  因为 父子  ）    </h2>
+        <h3 class="h_prewrap"> 1. .parent {  display:table-cell;  vertical-align:middle;  height:20px;  }  </h3>
+        <h3 class="h_prewrap"> 2. .parent {  display:inline-block;  vertical-align:middle;  height:20px;  }  </h3>
+        <h3 class="h_prewrap color_blue">      优点：兼容性好  </h3>
+        <h3 class="h_prewrap color_red">       缺点：子元素必须是 table-cell 或是 inline-block 属性值 ，table-cell 属性值  对 IE老版本 不友好            </h3>
+        
+
+        <h2  class="h_prewrap">  垂直 水平居中     </h2>
+        <h3 class="h_prewrap"> 1.         .parent{ display:table-cell;  vertical-align:middle;  text-align:center;  }
+            .child  {  display:inline-block; }
+        </h3>
+        <h3 class="h_prewrap color_red">  缺点：同时设置 父元素 子元素，且要求 子元素是   inline-block 元素 </h3>
+        
+        <h3 class="h_prewrap"> 2.  绝对定位  .parent{ position:relative; }   .child{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); } </h3>
+        <h3 class="h_prewrap color_red">  缺点：累了  不说了 </h3>
+
+        <h3 class="h_prewrap"> 2.  flex布局   .parent { display:flex; justify-content:center; align-items:center; } </h3>
+    </div>
+
+</body>
+</html>

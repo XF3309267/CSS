@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            width: 800px;
+            padding: 0 100px;
+            border: 1px solid black;
+            margin: 0 auto;
+            overflow: hidden;
+            zoom: 1;
+        }
+        .left,.right,.center{
+            width: 100px;
+            float: left;
+            background-color: rgba(22,22,22,.5);
+        }
+        .center{
+            width: 100%;
+            background-color: #eee;
+        }
+        .left{
+            margin-left: -100%;
+            position: relative;
+            left: -100px;
+        }
+        .right{
+            margin-left: -100px;
+            position: relative;
+            right: -100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        核心思想： 
+            HTML：
+                主内容 放置在 两个侧边栏的 前端
+
+            CSS:  
+                .parent{ padding-left: left_width( 左侧栏的 宽度);   padding-right: right_width( 右侧栏的 宽度 ) }
+                .center: {       width: 100%;float:left;       }     
+                .left:   {       position: relative; float: left; margin-left: -100%; left: -left_width    }
+                .right:  {       position: relative; float: left; margin-left: -right_width; right: -right_width;    }
+     -->
+    <div class="parent">
+        <div class="center"> center</div>
+        <div class="left"> left</div>
+        <div class="right"> right</div>
+    </div>
+</body>
+</html>

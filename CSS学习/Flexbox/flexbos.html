@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container{
+            display:flex;
+            width: 300px;
+            height: 200px;
+            background-color: #3E38F2;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            /* flex-wrap:wrap; */
+
+            /* align-content:  设置 交叉轴的 对齐方式 */
+            /* align-content:space-between */
+
+            
+        }   
+        .flex-item{
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            color: #FFF;
+            font-size: 40px;
+            text-align: center;
+            line-height: 70px;
+
+            /* 
+                flex-basis:     设定  flex-item 主轴方向 flex-item 的大小
+
+                flex-grow:      当 flex-container 在主轴方向上有  富余的空间时，
+                                flex-item 应该如何去 占取剩余的空间
+                                flex-grow 的 预设值是 0，即 不去占取
+                                占取 富余空间的算法： 自己的 flex-gorw 占 flex-gorw总和 的多少，
+                                就是占取  主轴富余空间的多少
+
+                flex-shrink:    在主轴上当 flex-container 不足以存放 flex-item 时，
+                                flex-item 应该做如何缩放（当然 前提是 没有设置 flex-wrap 为 wrap）
+                                flex-shink 预设值是 1，即 每一个 flex-item 的值为 1，每个 flex-item 平均分摊要减少的空间
+                                flex-shink: 0;  >> 即 flex-item 当空间不够时，不会进行缩小
+                flex-flow: flex-direction  flex-wrap
+                flex： flex-grow  flex-shink  flex-basis
+
+             */
+             flex-basis: 70px;
+             
+        }
+        .A{
+            /*  
+                在 父元素 是     flex-box  的情况下
+                子元素 设置  align-self ，会更改 默认父元素下的 align-items
+
+              */
+            background-color: #23D9B7;
+           flex-shrink: 2;
+        }
+        .B{
+            background-color: #50BFA0;
+            flex-shrink:1;
+        }
+        .C{
+            background-color:#F2C438;
+           
+        }
+        .D{
+            background-color:#F25749;
+        }
+        .E{
+            background-color:#34A6BF;
+        }
+        .nav-ul{
+            height: 20px;
+            background-color:#D9D9D9;
+            padding: 8px 0 ;
+        }
+        .my-ul{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        .my-ul > li a{
+            color:#000;
+            text-decoration:none;
+            
+            font-size: 1.2em;
+        }
+        .flex-ul{
+            display:flex;
+            flex-flow: row;
+            justify-content: space-around;
+            flex: 1 1 
+        }
+        .post-container{
+            /* max-width: 1200px; */
+            
+            margin:10px auto;
+        }
+        .post{
+            display:flex;
+            background-color: #EDE6E1;
+            flex-direction: row;
+            justify-content: center;
+            align-items:center;
+            padding: 10px;
+            margin-bottom:10px;
+        }
+        .post .thumbnail img {
+            border-radius: 5px;
+            flex:  0 1 200px;
+        }
+        .content{
+            display:flex;
+            flex-direction: column;
+            margin-left: 1.2em;
+        }
+        .content h3{
+            color: #000;
+            font-weight: bold;
+        }
+        .content .excerpt{
+            font-size: .8em;
+            color: #666;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item A">A</div>
+        <div class="flex-item B">B</div>
+        <div class="flex-item C">C</div>
+        <div class="flex-item D">D</div>
+        <div class="flex-item E">E</div>
+    </div>
+    <div class="nav-ul">
+        <ul class="my-ul flex-ul">
+            <li><a href="#" >home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">product</a></li>
+            <li><a href="#">introduce</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+    </div>
+
+   <div class="post-container">
+        <div class="post">
+            <div class="thumbnail">
+                <img width="200" src="01.jpg" alt="">
+            </div>
+            <div class=content>
+                <div class="title">
+                    <h3> 宋祖儿</h3>
+                </div>
+                <div class="excerpt">
+                    宋祖儿（lareina），1998年5月23日出生于天津，就读于北京电影学院，中国内地影视女演员。
+                    2005年，宋祖儿出演了个人第一部影视作品《海阔天高》，开始涉足演艺圈 [1]  。
+                    2007年，第一次登上央视春晚舞台，并表演节目《阳光下的花朵》 [2]  ；
+                    同年，由她领衔主演的公益电影《你是天使》上映 [3] 
+                </div>
+            </div>
+       </div>
+       <div class="post">
+            <div class="thumbnail">
+                <img width="200" src="01.jpg" alt="">
+            </div>
+            <div class=content>
+                <div class="title">
+                    <h3> 宋祖儿</h3>
+                </div>
+                <div class="excerpt">
+                    宋祖儿（lareina），1998年5月23日出生于天津，就读于北京电影学院，中国内地影视女演员。
+                    2005年，宋祖儿出演了个人第一部影视作品《海阔天高》，开始涉足演艺圈 [1]  。
+                    2007年，第一次登上央视春晚舞台，并表演节目《阳光下的花朵》 [2]  ；
+                    同年，由她领衔主演的公益电影《你是天使》上映 [3] 
+                </div>
+            </div>
+        </div>
+   </div>
+
+</body>
+</html>

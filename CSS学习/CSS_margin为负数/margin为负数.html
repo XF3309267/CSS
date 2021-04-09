@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .explain_content{
+            font-size: 1.6em;
+            line-height: 1.2em;
+            font-weight: bolder;
+            width: 1200px;
+            padding: 10px;
+            margin: 5px  auto;
+        }
+        .container{
+            height: 20px;
+            background: #ECF;
+            border: 20px solid red;
+            margin-bottom: 10px;
+            /* overflow: hidden; */
+        }
+        .chil_1_old{
+            height: 20px;
+            background: #CEF;
+            /* margin-left: 10px; */
+        }
+        .chil_1_new{
+            height: 20px;
+            background: #CEF;
+            margin-left: -20px;
+        }
+        .chil_2_new{
+            height: 20px;
+            background: #CEF;
+            margin-right: -20px;
+        }
+        .chil_3_old{
+            background: #CEF;
+            margin-top: 0px;
+        }
+        .chil_3_new{
+            /* height: 20px; */
+            background: #CEF;
+            margin-top: -40px;
+        }
+        .chil_4_new{
+            background: #CEF;
+            margin-bottom: -20px;
+        }
+    </style>
+</head>
+<body>
+    <pre class="explain_content">
+        margin 为负数，分  上  下  左  右
+        1.  margin-left:    -50px;    
+        2.  margin-right:   -50px;
+        3.  margin-top:     -50px;
+        4.  margin-bottom:  -50px;
+        （ 因为  行内元素的 特殊， 行内元素  设置  上下padding  上下margin 无效 ）
+    </pre>
+    <h3>  </h3>
+    <div class="container">
+        <div class="chil_1_old">
+            child div margin-left: 0px
+        </div>
+    </div>
+    <div class="container">
+        <div class="chil_1_new">
+            child div margin-left: -20px;   &nbsp;      height: 20px;
+        </div>
+    </div>
+    <div class="container">
+        <div class="chil_2_new">
+            child div margin-right: -20px;   &nbsp;     height: 20px;
+        </div>
+    </div>
+   
+    <pre class="explain_content">
+        我认为，在一个元素上设置 margin 为负数（首先设置 margin 要有效）
+        就是 告知 所有元素 在某个方向上还有 多少位置  可以去占据
+        例如： 上面的例子  
+            告知 自身元素  在 child_div 左边还有  20px 的位置 你可以去占据。
+            又因为 child_div 块级元素 占据一行（如果该元素没有设置 宽度）
+            所以， child_div 就去占据了，没有丝毫在意 它占据的是什么
+            -------------
+            如果  child_div  设置了一定的宽度，因为 块级元素的  占据整行，
+            且 是从 父级元素的  content 区域左边界开始
+            因为 告知 child_div 左边有富于位置，故 child_div 会向左移动一点位置，然后开始排布
+    </pre>
+    <!-- <div class="container">
+        <div class="chil_1_old">
+            child div margin-left: 0px
+        </div>
+    </div> -->
+    <div style="height: 40px;background: #3cf;border-top: 10px solid black; margin-bottom: 0px ;opacity: 1;"> aaaaaaaaa</div>
+    <div class="container" style="border-width: 0px;">
+        <div class="chil_3_old">
+            child div margin-top: 0px; &nbsp; &nbsp; 没有设置 height 值    <br/>
+            child div margin-top: 0px
+        </div>
+    </div>
+    <h1>---- 下面 margin-top: -40px,刚好 只留下 10px 的上边框，没有遮挡 ----</h1>
+    <div style="height: 40px;background: #3cf;border-top: 10px solid black; margin-bottom: 0px ;opacity: 1;">  </div>
+    <div class="container" style="border-width: 0px;">
+        <div class="chil_3_new">
+            child div margin-top: -40px; &nbsp; &nbsp; 没有设置 height 值    <br/>
+            child div margin-top: -40px
+        </div>
+    </div>
+    <!-- <div class="container" style="border-width: 0px;">
+        <div class="chil_4_new">
+            child div margin-right: -20px;  &nbsp; &nbsp; 没有设置 height 值  <br/>
+            child div margin-top: -20px 
+        </div>
+    </div> -->
+
+
+    <h1> 更多拓展内容，请 点击 html 文件 详细阅读 </h1>
+    <!-- 
+            <div style="height: 40px;background: rgb(195, 207, 15); margin-bottom: 41px;opacity: 1;"> aaaaaaaaa</div>
+            <div style="height: 40px;background: #3cf;opacity: 1;">
+                <div style=" margin-top: 30px;">  </div>
+            </div>
+
+            margin 合并 对  一负  一正的 不起作用
+            
+
+            <div class="div1" style="height: 40px;background: rgb(195, 207, 15); margin-bottom: 41px;opacity: 1;"> aaaaaaaaa</div>
+            <div class="div2" style="height: 40px;background: #3cf;opacity: 1;">
+                <div style=" margin-top: -30px;">  </div>
+            </div>
+            这里 一负  一正
+            div1 与 div2   的  margin 并没有发生合并
+            若 div1 没有设置 margin-bottom 正值， div2 会在 y 轴上 占据div1 30px 的高度
+            而 div1 设置 margin-bottom 只会拉开两者 原先的距离
+     -->
+     <pre class="explain_content">
+        上述讲的是 块级元素之间  margin 为负数的情况
+        当 行内元素  与  行内元素 之间存在 margin 为负数的情况，
+        其实 也是差不多，就是在其 应该 排版的位置  多出来位置
+     </pre>
+</body>
+</html>

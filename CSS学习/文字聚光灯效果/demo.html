@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:#222;
+            padding: 20vh 0vh;
+            display: flex;
+            justify-content: center;   
+            align-items: center;
+            /* min-height: 40vh;  */
+        }   
+        h1{
+            /* color:#333; */
+            color: #222;
+            font-family: Helvetica;
+            margin:0;
+            padding:0;
+            font-size: 5rem;
+            letter-spacing:-0.1rem;
+            position: relative;
+        }
+        h1#fir::after{
+            content: attr(data-spotlight);
+            color:transparent;
+            position: absolute;
+            top:0;
+            left:0;
+            
+            /* -webkit-clip-path: padding-box;
+            clip-path: padding-box; */
+
+            -webkit-clip-path: ellipse(60px 60px at -20% 50%);
+            clip-path: ellipse(60px 60px at -20% 50%);
+            animation: spotlight 4s 1;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            animation-delay:1s;
+            -webkit-animation-delay:1s; 
+
+            background-image: url('./gradienta-eN6FkYAetF8-unsplash.jpg' );
+            background-size:150%;
+            background-position: center center;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        h1#sec::after{
+            content: attr(data-spotlight);
+            color:transparent;
+            position: absolute;
+            top:0;
+            left:0;
+            -webkit-clip-path: ellipse(60px 60px at -20% 50%);
+            clip-path: ellipse(60px 60px at -20% 50%);
+            animation: spotlight 4s 1;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            animation-delay:5s;
+            -webkit-animation-delay:5s; 
+
+            background-image: url('./gradienta-eN6FkYAetF8-unsplash.jpg' );
+            background-size:150%;
+            background-position: center center;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        @keyframes spotlight {
+            0%{
+                -webkit-clip-path: ellipse(60px 60px at -20% 50%);
+                clip-path: ellipse(60px 60px at 0% 50%);
+            }
+            100%{
+                -webkit-clip-path: ellipse(300px 300px at 100% 50%);
+                clip-path: ellipse(300px 300px at 50% 50%);
+            }
+        }
+        @keyframes spotlight2 {
+            0%{
+                -webkit-clip-path: ellipse(100px 100px at -20% 50%);
+                clip-path: ellipse(100px 100px at 0% 50%);
+            }
+            100%{
+                -webkit-clip-path: ellipse(300px 300px at 100% 50%);
+                clip-path: ellipse(300px 300px at 50% 50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 data-spotlight="你准备好了吗"  id='fir'>
+            你准备好了吗
+        </h1>
+        <h1 data-spotlight="接受这番洗礼" id='sec'>
+            接受这番洗礼
+        </h1>
+        <h1 data-spotlight="接受这番洗礼" id='sec'>
+            接受这番洗礼
+        </h1>
+        <audio autoplay="true" loop="loop" preload="auto" src='./林俊杰 - 当你.mp3' controls="controls"  >       
+        </audio>
+    </div>
+</body>
+</html>
